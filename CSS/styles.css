@@ -1,10 +1,59 @@
+/* Reset do CSS */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+
 body {
-    background-image: url('https://images.unsplash.com/photo-1523821741446-edb2b68bb7a0?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+    background-image: url('../img/fundo.jpg');
     background-size: auto 100vh;
-    font-family: Arial;
+    font-family: 'Kanit', sans-serif;
+    color: whitesmoke;
     height: 100vh;
+    font-size: 12px;
   }
-  
+
+/* Se a tela tiver pelo menos 400px vai carregar estes estilos*/
+@media(min-width: 600px) {
+  body{
+    font-size: 18px;
+  }
+}
+
+
+@media(min-width: 1200px){
+  body{
+    font-size: 28px;
+      }
+}
+
+header {
+  height: 50vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.titulos{
+  transform: scale(0.2) translateY(50vh);
+  opacity: 0;
+
+  animation: linear 2s animacaoTitulo forwards;
+}
+
+@keyframes animacaoTitulo{
+ 
+  100% {
+    transform: scale(1) translateY(0);
+    opacity: 1;
+  }
+}
+
+
+
   a {
     color: teal;
     text-decoration: none;
@@ -13,9 +62,14 @@ body {
   a:hover {
     text-decoration: underline;
   }
+
   
   .menu{
     background-color: white;
+    position: fixed;
+    width: 100vw;
+    top: 0;
+    z-index: 1;
   }
   
   .menu ul {
@@ -27,14 +81,154 @@ body {
   .menu li{
     list-style: none;
   }
+
+  .menu a {
+    display: block;
+    /*color: red;*/
+   /* background-color: black;*/
+    padding: 10px 20px;
+    transition: background-color, color, 1s;
+  }
+
+  .menu a:hover{
+    background-color: teal;
+    color: white;
+  }
   
+  
+
   .site-subtitle, 
   .site-title {
     color: whitesmoke;
     text-align: center;
+    }
+
+  .site-title {
+    font-size: 4em;
+    font-family: 'Kanit', sans-serif;
   }
   
   .site-subtitle {
     font-style: italic;
+    font-family: 'Balsamiq Sans', cursive;
+    line-height: 1.8em;
+  }
+
+
+  .sobre,
+  .contato,
+  .portifolio{
+    padding: 2em;
+    min-height: 100vh;
+    
+  }
+
+  @media (min-width: 1200px){
+  .container{
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 1200px;
+  }
+  }
+
+
+  .sobre h2,
+  .contato h2,
+  .portifolio h2{
+    color: whitesmoke;
+    font-family: 'Balsamiq Sans', cursive;
+    margin-bottom: 2em;
+    text-align: center;
+  }
+
+  .sobre p{
+    color: white;
+    margin-bottom: 1.4em;
+    text-indent: 1.4em;
+    text-align: justify;
+  }
+
+  .sobre a{
+    color: cyan;
+  }
+
+  .sobre a:hover{
+    color: cyan;
+  }
+
+  .avatar img {
+    width:400px;
+    height:450px;
+    /*border-radius: 10%;*/
+    clip-path: polygon(50% 0%, 83% 12%, 100% 43%, 94% 78%, 68% 100%, 32% 100%, 6% 78%, 0% 43%, 17% 12%);
+}
+  .sobre .avatar{
+    float: right;
+    margin-left: 2em;
+  }
+
+  .portifolio .grid{
+    display: grid;
+    gap: 2em;
+    height:50vh;
+  }
+
+  @media (min-width:560px){
+    .portifolio .grid{
+      grid-template-columns: 240px 240px;
+    }
+  }
+
+
+  @media (min-width:880px){
+    .portifolio .grid{
+      grid-template-columns: repeat(3,260px);
+      align-content: center;
+      justify-content: center;
+      height: calc(100vh - 4em - 48px -1.5em);
+    }
+  }
+
+  
+
+  .portifolio figure{
+    text-align: center;
+  }
+
+  .img-portfolio {
+    height: 180px;
+    width: 180px;
+    object-fit: cover;
+    border-radius: 20px;
+    transition: transform 500ms;
+  }
+
+  .img-portfolio:hover{
+    transform: scale(1.2) rotate(45deg);
   }
   
+  @media (min-width: 1200px){
+    .img-portfolio {
+      height: auto;
+      width: 100%;
+    }
+  }
+
+
+  .contato .icons{
+    text-align: center;
+  }
+
+  .contato a{
+    color:whitesmoke;
+    font-size: 4em;
+  }
+
+  .contato a:active,
+  .contato a:hover{
+    text-decoration: none;
+    text-shadow:0px 0px 30px yellow;
+    color: black;
+    transition: color, 0.5s;
+    /*text-shadow: 0px 0px 0px rgba(255,255,255,.5);*/
+    }
